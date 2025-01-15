@@ -1,0 +1,21 @@
+{% include 'header.html' %}
+<div class="container mt-3">
+   <form action="/edit/{{row[1]}}" method="post">
+      <div class="mb-3">
+         <label for="cname" class="form-label">Nama Brand</label>
+         <input type="text" name="cname" id="cname" class="form-control" value="{{row[0]['brand']}}">
+      </div>
+      <div class="mb-3">
+         <label for="ctype" class="form-label">Tipe Kendaraan</label>
+         <input type="text" name="ctype" id="ctype" class="form-control" value="{{row[0]['type']}}">
+      </div>
+      <div class="mb-3">
+         <label for="cprice" class="form-label">Harga</label>
+         <input type="text" name="cprice" id="cprice" class="form-control" value="{{row[0]['price']}}">
+      </div>
+
+      <button type="submit" class="btn btn-primary">Edit</button>
+      <a href="{{'/'}}" class="btn btn-danger">Kembali</a>
+   </form>
+</div>
+{% include 'footer.html' %}

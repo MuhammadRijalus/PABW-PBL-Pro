@@ -1,0 +1,47 @@
+{% include 'header.html' %}
+<div class="container mt-3">
+   {% with messages = get_flashed_messages() %}
+   {% if messages %}
+   <div class="alert alert-success alert-dismissible fade show" role="alert">
+      {% for message in messages %}
+      {{ message }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      {% endfor %}
+   </div>
+   {% endif %}
+   {% endwith %}
+
+   <div class="d-md-flex d-block justify-content-between">
+      <a href="{{'/add'}}" class="btn btn-primary">Tambah Kendaraan</a>
+      <form class="d-flex mt-md-0 mt-3" action="/" method="post">
+         <input class="form-control me-2" type="text" placeholder="Cari Brand atau Tipe" aria-label="Search"
+            name="search">
+         <button class="btn btn-outline-success w-auto" type="submit">Cari</button>
+      </form>
+   </div>
+
+   <div class="table-responsive mt-4">
+      <table class="table table-stripped">
+         <tr>
+            <th>No</th>
+            <th>Brand</th>
+            <th>Type</th>
+            <th>Price (USD)</th>
+            <th>Action</th>
+         </tr>
+         {% for id, brand, type, price in rows %}
+         <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ brand }}</td>
+            <td>{{ type }}</td>
+            <td>{{ price }}</td>
+            <td>
+               <a href="{{'delete'}}/{{ id }}">Hapus</a>
+               <a href="{{'edit'}}/{{ id }}">Edit</a>
+            </td>
+         </tr>
+         {% endfor %}
+      </table>
+   </div>
+</div>
+{% include 'footer.html' %}

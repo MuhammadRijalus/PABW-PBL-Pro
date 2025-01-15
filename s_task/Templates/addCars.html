@@ -1,0 +1,26 @@
+{% include 'header.html' %}
+<div class="container mt-3">
+   <form action="/add" method="post">
+      <!-- <div class="mb-3">
+         <label for="cid" class="form-label">ID Kendaraan</label>
+         <input type="text" name="cid" id="cid" class="form-control">
+      </div> -->
+      
+      <div class="mb-3">
+         <label for="cname" class="form-label">Nama Brand</label>
+         <input type="text" name="cname" id="cname" class="form-control">
+      </div>
+      <div class="mb-3">
+         <label for="ctype" class="form-label">Tipe Kendaraan</label>
+         <input type="text" name="ctype" id="ctype" class="form-control">
+      </div>
+      <div class="mb-3">
+         <label for="cprice" class="form-label">Harga</label>
+         <input type="text" name="cprice" id="cprice" class="form-control">
+      </div>
+
+      <button type="submit" class="btn btn-primary">Tambahkan</button>
+      <a href="{{'/'}}" class="btn btn-danger">Kembali</a>
+   </form>
+</div>
+{% include 'footer.html' %}
